@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>แคตตาล็อกวัสดุก่อสร้าง</title>
+  <meta charset="utf-8">
+  <style>
+    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 300px; }
+    img { width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>สินค้า</h1>
+  <div id="products">กำลังโหลด...</div>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbzti0GjNKIokjLO5LOj601wAQB-bvk3gQ9p3TYzXAdakh8E5dUzAowDXjURg5JS0LUD/exec") // แทน AKfxxx ด้วยของคุณ
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("products");
+        container.innerHTML = "";
+        data.forEach(p => {
+          container.innerHTML += `
+            <div class="product">
+              <img src="${p['Image URL']}" alt="${p.Name}">
+              <h3>${p.Name}</h3>
+              <p>SKU: ${p.SKU}<br>
+              หน่วย: ${p.Unit}<br>
+              ราคา: ฿${p.Price}<br>
+              ขั้นต่ำ: ${p['Min Order']}</p>
+            </div>
+          `;
+        });
+      });
+  </script>
+</body>
+</html>
