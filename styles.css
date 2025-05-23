@@ -6,8 +6,8 @@ body {
   color: #222;
 }
 header {
-  background: #222;
-  color: #fff;
+  background: #093238;
+  color: #fffdfd;
   padding: 1rem 0;
 }
 header .container {
@@ -23,6 +23,14 @@ header nav a {
 }
 header nav a:last-child {
   margin-right: 0;
+  
+}
+.logo {
+  height: 48px;
+  width: auto;
+}
+@media (max-width: 700px) {
+  .logo { height: 32px; }
 }
 .banner {
   background: #eee;
@@ -87,9 +95,10 @@ header nav a:last-child {
   margin-top: 0.5rem;
 }
 .about {
-  background: #eef3fa;
+  background: #093238;
   padding: 2rem 0;
   text-align: center;
+  color: #fff; /* ตัวอย่าง: สีขาว */
 }
 .highlights {
   display: flex;
