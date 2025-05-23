@@ -1,143 +1,214 @@
-body {
-  font-family: 'Sarabun', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fafafa;
-  color: #222;
-}
-header {
-  background: #093238;
-  color: #fffdfd;
-  padding: 1rem 0;
-}
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 20px;
-  font-weight: bold;
-}
-header nav a:last-child {
-  margin-right: 0;
-  
-}
-.logo {
-  height: 48px;
-  width: auto;
-}
-@media (max-width: 700px) {
-  .logo { height: 32px; }
-}
-.banner {
-  background: #eee;
-  padding: 2rem 0;
-  text-align: center;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-.categories {
-  background: #f9f9f9;
-  padding: 2rem 0;
-}
-.category-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.category-card {
-  flex: 1 1 200px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 8px;
-}
-.category-card button {
-  background: #222;
-  color: #fff;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.products {
-  padding: 2rem 0;
-}
-.product-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.product-card {
-  flex: 1 1 200px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-}
-.product-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-.product-card .price {
-  color: #1976d2;
-  font-size: 1.1em;
-  margin-top: 0.5rem;
-}
-.about {
-  background: #093238;
-  padding: 2rem 0;
-  text-align: center;
-  color: #fff; /* ตัวอย่าง: สีขาว */
-}
-.highlights {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 1.5rem;
-}
-.highlights div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.highlights img {
-  width: 48px;
-  height: 48px;
-}
-.contact {
-  background: #eee;
-  padding: 2rem 0;
-  text-align: left;
-}
-.contact .map {
-  margin-top: 1rem;
-}
-footer {
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 1rem;
-}
-@media (max-width: 700px) {
-  .category-list,
-  .product-list,
-  .highlights {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .container {
-    padding: 0 0.5rem;
-  }
-}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ขายส่งรถเข็นปูน(DAY)</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .main-image {
+      width: 100%;
+      max-width: 480px;   /* ปรับขนาดกว้างสุดได้ตามต้องการ */
+      height: 320px;      /* ปรับความสูงตามต้องการ */
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px #eee;
+    }
+    .thumbs {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      justify-content: center;
+    }
+    .thumbs img {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #eee;
+      border-radius: 4px;
+      cursor: pointer;
+      object-fit: cover;
+      transition: border 0.2s;
+    }
+    .thumbs img.active {
+      border: 2px solid #1976d2;
+    }
+    /* Responsive (optional) */
+    @media (max-width: 700px) {
+      .main-image { max-width: 100%; height: 180px; }
+      .thumbs img { width: 36px; height: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+<header>
+  <div class="container" style="display: flex; align-items: center; gap: 16px;">
+    <img src="data\products\logo\logo.png" alt="โลโก้บริษัท" class="logo">
+    <h1 style="margin: 0;">หจก. เดย์ อินเตอร์ เทรด </h1>
+    <nav style="margin-left: auto;">
+      <a href="#products">สินค้า</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="container">
+      <h2>ผู้จำน่ายอุปกรณ์การก่อสร้าง และการเกษตร </h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      </p>
+    </div>
+  </section>
+
+  <!-- Product List -->
+  <section class="products" id="products">
+    <div class="container">
+      <h3 style="text-align: center; font-size: 1.8em;">สินค้าแนะนำ</h3>
+      <div class="product-list">
+        <!-- ตัวอย่างสินค้าที่มีอัลบัม -->
+        <div class="product-card">
+          <img id="main-prod1" src="data/products/prod1/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod1/1.jpeg" alt="" class="active" onclick="changeImage('prod1', 1, this)">
+            <img src="data/products/prod1/2.jpeg" alt="" onclick="changeImage('prod1', 2, this)">
+            <img src="data/products/prod1/3.jpeg" alt="" onclick="changeImage('prod1', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+        <div class="product-card">
+          <img id="main-prod2" src="data/products/prod2/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod2/1.jpeg" alt="" class="active" onclick="changeImage('prod2', 1, this)">
+            <img src="data/products/prod2/2.jpeg" alt="" onclick="changeImage('prod2', 2, this)">
+            <img src="data/products/prod2/3.jpeg" alt="" onclick="changeImage('prod2', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+        <div class="product-card">
+          <img id="main-prod3" src="data/products/prod3/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod3/1.jpeg" alt="" class="active" onclick="changeImage('prod3', 1, this)">
+            <img src="data/products/prod3/2.jpeg" alt="" onclick="changeImage('prod3', 2, this)">
+            <img src="data/products/prod3/3.jpeg" alt="" onclick="changeImage('prod3', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+                <div class="product-card">
+          <img id="main-prod4" src="data/products/prod4/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod4/1.jpeg" alt="" class="active" onclick="changeImage('prod4', 1, this)">
+            <img src="data/products/prod4/2.jpeg" alt="" onclick="changeImage('prod4', 2, this)">
+            <img src="data/products/prod4/3.jpeg" alt="" onclick="changeImage('prod4', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+                <div class="product-card">
+          <img id="main-prod5" src="data/products/prod5/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod5/1.jpeg" alt="" class="active" onclick="changeImage('prod5', 1, this)">
+            <img src="data/products/prod5/2.jpeg" alt="" onclick="changeImage('prod5', 2, this)">
+            <img src="data/products/prod5/3.jpeg" alt="" onclick="changeImage('prod5', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+                <div class="product-card">
+          <img id="main-prod6" src="data/products/prod6/1.jpeg" alt="ลวดหนาม" class="main-image">
+          <div class="thumbs">
+            <img src="data/products/prod6/1.jpeg" alt="" class="active" onclick="changeImage('prod6', 1, this)">
+            <img src="data/products/prod6/2.jpeg" alt="" onclick="changeImage('prod6', 2, this)">
+            <img src="data/products/prod6/3.jpeg" alt="" onclick="changeImage('prod6', 3, this)">
+          </div>
+          <h4>ลวดหนาม</h4>
+          <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
+          <div class="price">฿1,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <h3 style="font-size: 1.5em;">เกี่ยวกับเรา</h3>
+      <p>ได้ถือกำเนิดจากความมุ่งมั่น และประสบการจากผู้บริหารที่มีความรู้และเชี่ยวชาญในธุรกิจวัสดุก่อสร้างในจังหวัดปัตตานี ยะลา นราธิวาส โดยเป็นผู้ผลิต และจำหน่ายปลีก-ส่ง สินค้าเกี่ยวธุจกิจก่อสร้าง และเครื่องมทอการเกษตร ที่มีคุณภาพสูงได้แก่
+
+รถเข็นอเนกประสงค์ ลวดหนาม กิ๊ปลวดหนาม ลวดผูก ตาข่ายรั้วแรงดึง ตาข่ายทอ ตาข่ายสาน
+
+โดยมุ่งเน้นให้บริการสินค้าที่มีคุณภาพ และการบริการส่งสินค้าที่มีประสิทธิภาพ รวดเร็ว ฉับไว เพื่อตอบสนองความต้องการของลูกค้า</p>
+      <div class="highlights">
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" alt="คุณภาพดี">
+          <span>คุณภาพดี</span>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190406.png" alt="ราคาถูก">
+          <span>ราคาถูก</span>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190420.png" alt="ส่งไว">
+          <span>ส่งไว</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h3>ติดต่อเรา</h3>
+      <p>โทร: 081-5015914</p>
+      <p>อีเมล: example@example.com</p>
+      <p>Facebook: <a href="https://facebook.com">facebook.com/anas lateh</a></p>
+      <div class="map">
+        <iframe
+          title="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.2954446690873!2d101.3248471981359!3d6.868809248363577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b30789ce9eb3ff%3A0xf099ba655c592665!2z4Lij4LiW!5e0!3m2!1sth!2sth!4v1747983316159!5m2!1sth!2sth"
+          width="300"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © 2025 Suphan Wiremesh Demo. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // เปลี่ยนรูปหลักเมื่อคลิกที่ thumbnail
+    function changeImage(product, imgIdx, el) {
+      document.getElementById('main-' + product).src = `data/products/${product}/${imgIdx}.jpeg`;
+      // ลบ active จากทุก thumbnail ในกล่องเดียวกัน
+      const thumbs = el.parentElement.querySelectorAll("img");
+      thumbs.forEach(t => t.classList.remove("active"));
+      el.classList.add("active");
+    }
+    function scrollToProducts() {
+      document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
