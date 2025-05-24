@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ติดต่อเรา</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .contact-form {
+      max-width: 420px;
+      background: #fff;
+      margin: 60px auto;
+      padding: 32px 28px 24px 28px;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.09), 0 1.5px 8px 0 rgba(0,0,0,0.03);
+    }
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 22px;
+      color: #254155;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #254155;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .contact-form input[type="email"],
+    .contact-form input[type="text"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1.2px solid #c9d6e3;
+      border-radius: 6px;
+      background: #f8fafc;
+      font-size: 1rem;
+      transition: border 0.2s, box-shadow 0.2s;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #1976d2;
+      background: #fff;
+      outline: none;
+      box-shadow: 0 0 0 1.5px #1976d2 inset;
+    }
+    .contact-form textarea {
+      min-height: 80px;
+      max-height: 220px;
+      line-height: 1.6;
+    }
+    .contact-form button[type="submit"] {
+      width: 100%;
+      background: #1976d2;
+      color: #fff;
+      padding: 13px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.12rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin-top: 6px;
+      box-shadow: 0 2px 6px 0 rgba(25, 118, 210, 0.10);
+    }
+    .contact-form button[type="submit"]:hover,
+    .contact-form button[type="submit"]:focus {
+      background: #1557a5;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-form">
+    <h2>ติดต่อเรา</h2>
+    <form action="https://formspree.io/f/mvganepw" method="POST">
+      <label>
+        สินค้าที่ต้องการ
+        <input type="text" name="product" id="product-input" readonly>
+      </label>
+      <label>
+        อีเมลของคุณ
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        ข้อความ
+        <textarea name="message" required></textarea>
+      </label>
+      <button type="submit">ส่งข้อความ</button>
+    </form>
+  </div>
+  <script>
+    // ดึงค่าจาก URL (เช่น ?product=เครื่องปั่นไฟ) แล้วเติมในฟิลด์ "สินค้า"
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product');
+    if(product){
+      document.getElementById('product-input').value = product;
+    }
+  </script>
+</body>
+</html>
