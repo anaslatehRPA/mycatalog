@@ -4,16 +4,38 @@ body {
   padding: 0;
   background: #fafafa;
   color: #222;
+  padding-top: 60px; /* ป้องกัน header ทับเนื้อหา */
 }
-header {
+
+/* Header */
+#mainHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #093238;
   color: #fffdfd;
   padding: 1rem 0;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+#mainHeader.hide {
+  transform: translateY(-100%);
+}
+#mainHeader.show {
+  transform: translateY(0%);
 }
 header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+}
+header h1 {
+  margin: 0;
+}
+nav {
+  margin-left: auto;
 }
 header nav a {
   color: #fff;
@@ -28,87 +50,47 @@ header nav a:last-child {
   height: 48px;
   width: auto;
 }
-.quote-btn {
-  display: inline-block;
-  background: #105661;
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 2px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-.quote-btn:hover {
-  background: #97c0e8;
-}
-@media (max-width: 700px) {
-  .logo { height: 32px; }
-}
-/* Banner with blurred background image */
+
+/* Banner Section */
 .banner {
   position: relative;
-  overflow: hidden;           /* กันไม่ให้ blur ล้น */
-  min-height: 300px;          /* ปรับความสูงตามต้องการ */
+  overflow: hidden;
+  min-height: 300px;
   display: flex;
-  align-items: center;        /* ให้องค์ประกอบอยู่กลางแนวตั้ง */
-  justify-content: center;    /* ให้องค์ประกอบอยู่กลางแนวนอน */
-  color: #fff;                /* ข้อความสีขาว */
+  align-items: center;
+  justify-content: center;
+  color: #fff;
   text-shadow: 1px 1px 4px #000;
   z-index: 1;
-  padding: 2rem 0;            /* เพิ่มระยะห่างด้านบน/ล่าง */
+  padding: 2rem 0;
   text-align: center;
-  /* ถ้ารูปโหลดไม่ขึ้น จะโชว์สีนี้ (fallback) */
   background: #f5f2f2;
 }
-
 .banner::before {
   content: "";
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background-image: url('data/products/logo/banner/banner.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(1px);       /* ปรับความเบลอได้ เช่น 5px, 8px */
-  z-index: 0;                 /* อยู่ด้านหลัง */
-  /* ถ้าอยากให้ overlay ดำจางๆ เพิ่มได้ เช่น: */
-  /* background-color: rgba(0,0,0,0.2); */
+  filter: blur(1px);
+  z-index: 0;
+  background-color: rgba(0,0,0,0.4);
 }
-
 .banner > * {
   position: relative;
-  z-index: 1; /* ให้ข้อความลอยอยู่เหนือชั้นเบลอ */
+  z-index: 1;
 }
+
+/* Section Container */
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
 }
-.categories {
-  background: #f9f9f9;
-  padding: 2rem 0;
-}
-.category-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.category-card {
-  flex: 1 1 200px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 8px;
-}
-.category-card button {
-  background: #222;
-  color: #fff;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+
+/* Product List */
 .products {
   padding: 2rem 0;
 }
@@ -131,7 +113,6 @@ header nav a:last-child {
   object-fit: cover;
   border-radius: 6px;
 }
-/* เพิ่มด้านล่างนี้ */
 .product-card img.main-image {
   height: 300px;
   object-fit: contain;
@@ -141,6 +122,43 @@ header nav a:last-child {
   font-size: 1.1em;
   margin-top: 0.5rem;
 }
+
+/* Thumbnails */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+}
+.thumbs img {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: border 0.2s;
+}
+.thumbs img.active {
+  border: 2px solid #1976d2;
+}
+
+/* Quote Button */
+.quote-btn {
+  display: inline-block;
+  background: #105661;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.quote-btn:hover {
+  background: #97c0e8;
+}
+
+/* About */
 .about {
   background: #093238;
   padding: 2rem 0;
@@ -162,6 +180,8 @@ header nav a:last-child {
   width: 48px;
   height: 48px;
 }
+
+/* Contact */
 .contact {
   background: #eee;
   padding: 2rem 0;
@@ -170,6 +190,8 @@ header nav a:last-child {
 .contact .map {
   margin-top: 1rem;
 }
+
+/* Footer */
 footer {
   background: #222;
   color: #fff;
@@ -177,17 +199,8 @@ footer {
   padding: 1rem 0;
   margin-top: 1rem;
 }
-@media (max-width: 700px) {
-  .category-list,
-  .product-list,
-  .highlights {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .container {
-    padding: 0 0.5rem;
-  }
-}
+
+/* Floating Contact */
 .floating-contact {
   position: fixed;
   right: 24px;
@@ -211,79 +224,79 @@ footer {
   background: #009f23;
   box-shadow: 0 4px 16px rgba(0,0,0,0.26);
 }
-/* main-image */
 
-/* Modern Contact Form CSS */
-.contact-form {
-  max-width: 420px;
-  background: #fff;
-  margin: 48px auto;
-  padding: 32px 28px 24px 28px;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.09), 0 1.5px 8px 0 rgba(0,0,0,0.03);
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+/* Responsive Design */
+@media (max-width: 700px) {
+  .main-image { max-width: 100%; height: 180px; }
+  .thumbs img { width: 36px; height: 36px; }
+  .logo { height: 32px; }
+  .category-list,
+  .product-list,
+  .highlights {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
 }
-.contact-form h2 {
-  text-align: center;
-  margin-bottom: 22px;
-  color: #254155;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+/* Dropdown Menu */
+nav .dropdown {
+  position: relative;
+  display: inline-block;
 }
-.contact-form label {
-  display: block;
-  margin-bottom: 10px;
-  color: #254155;
-  font-weight: 500;
-  font-size: 1rem;
-}
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: 10px 12px;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  border: 1.2px solid #c9d6e3;
-  border-radius: 6px;
-  background: #f8fafc;
-  font-size: 1rem;
-  transition: border 0.2s, box-shadow 0.2s;
-  resize: vertical;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #1976d2;
-  background: #fff;
-  outline: none;
-  box-shadow: 0 0 0 1.5px #1976d2 inset;
-}
-.contact-form textarea {
-  min-height: 80px;
-  max-height: 220px;
-  line-height: 1.6;
-}
-.contact-form button[type="submit"] {
-  width: 100%;
-  background: #1976d2;
+nav .dropbtn {
   color: #fff;
-  padding: 13px 0;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.12rem;
+  text-decoration: none;
   font-weight: bold;
+  margin-right: 20px;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 170px;
+  background: #093238;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  z-index: 1001;
+  border-radius: 4px;
   margin-top: 6px;
-  box-shadow: 0 2px 6px 0 rgba(25, 118, 210, 0.10);
 }
-.contact-form button[type="submit"]:hover,
-.contact-form button[type="submit"]:focus {
-  background: #1557a5;
+nav .dropdown-content a {
+  color: #fff;
+  padding: 10px 18px;
+  text-decoration: none;
+  display: block;
+  font-weight: normal;
+  border-bottom: 1px solid #0f4650;
+  transition: background 0.18s;
 }
-.contact-form .form-message {
-  margin-top: 12px;
-  font-size: 1.06rem;
-  color: #388e3c;
-  text-align: center;
+nav .dropdown-content a:last-child {
+  border-bottom: none;
+}
+nav .dropdown-content a:hover {
+  background: #155c68;
+}
+nav .dropdown:hover .dropdown-content,
+nav .dropdown:focus-within .dropdown-content {
+  display: block;
+}
+nav a:not(.dropbtn) {
+  margin-right: 20px;
+}
+nav a:last-child {
+  margin-right: 0;
+}
+
+/* Responsive: ปรับ dropdown ให้เหมาะกับจอเล็ก */
+@media (max-width: 700px) {
+  nav .dropdown-content {
+    left: 0;
+    right: auto;
+    min-width: 140px;
+  }
 }

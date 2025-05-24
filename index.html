@@ -8,8 +8,8 @@
   <style>
     .main-image {
       width: 100%;
-      max-width: 480px;   /* ปรับขนาดกว้างสุดได้ตามต้องการ */
-      height: 320px;      /* ปรับความสูงตามต้องการ */
+      max-width: 480px;
+      height: 320px;
       object-fit: cover;
       display: block;
       margin: 0 auto 10px auto;
@@ -34,7 +34,6 @@
     .thumbs img.active {
       border: 2px solid #1976d2;
     }
-    /* Responsive (optional) */
     @media (max-width: 700px) {
       .main-image { max-width: 100%; height: 180px; }
       .thumbs img { width: 36px; height: 36px; }
@@ -43,26 +42,33 @@
 </head>
 <body>
   <!-- Header -->
-<header>
-  <div class="container" style="display: flex; align-items: center; gap: 16px;">
-    <img src="data\products\logo\logo.png" alt="โลโก้บริษัท" class="logo">
-    <h1 style="margin: 0;">หจก. เดย์ อินเตอร์ เทรด </h1>
-    <nav style="margin-left: auto;">
-      <a href="#products">สินค้า</a>
-      <a href="#about">เกี่ยวกับเรา</a>
-      <a href="#contact">ติดต่อ</a>
-    </nav>
-  </div>
-</header>
+  <header id="mainHeader">
+    <div class="container">
+      <img src="data/products/logo/logo.png" alt="โลโก้บริษัท" class="logo">
+      <h1>หจก. เดย์ อินเตอร์ เทรด</h1>
+      <nav>
+        <div class="dropdown">
+          <a href="#products" class="dropbtn">สินค้า</a>
+          <div class="dropdown-content">
+            <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
+            <a href="machines.html">เครื่องจักร</a>
+          </div>
+        </div>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Banner -->
   <section class="banner">
     <div class="container">
-      <h2>ผู้จำน่ายอุปกรณ์การก่อสร้าง และการเกษตร </h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      <h2>ผู้จำน่ายอุปกรณ์การก่อสร้าง และการเกษตร</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
     </div>
   </section>
@@ -72,7 +78,6 @@
     <div class="container">
       <h3 style="text-align: center; font-size: 1.8em;">Our Products</h3>
       <div class="product-list">
-        <!-- ตัวอย่างสินค้าที่มีอัลบัม -->
         <div class="product-card">
           <img id="main-prod1" src="data/products/prod1/1.jpeg" alt="ลวดหนาม" class="main-image">
           <div class="thumbs">
@@ -106,7 +111,7 @@
           <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
           <a href="contact.html?product=เครื่องปั่นไฟ" class="quote-btn">ขอใบเสนอราคา</a>
         </div>
-                <div class="product-card">
+        <div class="product-card">
           <img id="main-prod4" src="data/products/prod4/1.jpeg" alt="ลวดหนาม" class="main-image">
           <div class="thumbs">
             <img src="data/products/prod4/1.jpeg" alt="" class="active" onclick="changeImage('prod4', 1, this)">
@@ -117,7 +122,7 @@
           <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
           <a href="contact.html?product=เครื่องปั่นไฟ" class="quote-btn">ขอใบเสนอราคา</a>
         </div>
-                <div class="product-card">
+        <div class="product-card">
           <img id="main-prod5" src="data/products/prod5/1.jpeg" alt="ลวดหนาม" class="main-image">
           <div class="thumbs">
             <img src="data/products/prod5/1.jpeg" alt="" class="active" onclick="changeImage('prod5', 1, this)">
@@ -128,7 +133,7 @@
           <p>ลวดหนามของเรา – แข็งแรง คมทน ยาวนานด้วยมาตรฐาน</p>
           <a href="contact.html?product=ตะปูตอกไม้" class="quote-btn">ขอใบเสนอราคา</a>
         </div>
-                <div class="product-card">
+        <div class="product-card">
           <img id="main-prod6" src="data/products/prod6/1.jpeg" alt="ลวดหนาม" class="main-image">
           <div class="thumbs">
             <img src="data/products/prod6/1.jpeg" alt="" class="active" onclick="changeImage('prod6', 1, this)">
@@ -147,11 +152,10 @@
   <section class="about" id="about">
     <div class="container">
       <h3 style="font-size: 1.5em;">เกี่ยวกับเรา</h3>
-      <p>ได้ถือกำเนิดจากความมุ่งมั่น และประสบการจากผู้บริหารที่มีความรู้และเชี่ยวชาญในธุรกิจวัสดุก่อสร้างในจังหวัดปัตตานี ยะลา นราธิวาส โดยเป็นผู้ผลิต และจำหน่ายปลีก-ส่ง สินค้าเกี่ยวธุจกิจก่อสร้าง และเครื่องมทอการเกษตร ที่มีคุณภาพสูงได้แก่
-
-รถเข็นอเนกประสงค์ ลวดหนาม กิ๊ปลวดหนาม ลวดผูก ตาข่ายรั้วแรงดึง ตาข่ายทอ ตาข่ายสาน
-
-โดยมุ่งเน้นให้บริการสินค้าที่มีคุณภาพ และการบริการส่งสินค้าที่มีประสิทธิภาพ รวดเร็ว ฉับไว เพื่อตอบสนองความต้องการของลูกค้า</p>
+      <p>ได้ถือกำเนิดจากความมุ่งมั่น และประสบการจากผู้บริหารที่มีความรู้และเชี่ยวชาญในธุรกิจวัสดุก่อสร้างในจังหวัดปัตตานี ยะลา นราธิวาส โดยเป็นผู้ผลิต และจำหน่ายปลีก-ส่ง สินค้าเกี่ยวธุจกิจก่อสร้าง และเครื่องมือการเกษตร ที่มีคุณภาพสูงได้แก่
+      <br>รถเข็นอเนกประสงค์ ลวดหนาม กิ๊ปลวดหนาม ลวดผูก ตาข่ายรั้วแรงดึง ตาข่ายทอ ตาข่ายสาน
+      <br>โดยมุ่งเน้นให้บริการสินค้าที่มีคุณภาพ และการบริการส่งสินค้าที่มีประสิทธิภาพ รวดเร็ว ฉับไว เพื่อตอบสนองความต้องการของลูกค้า
+      </p>
       <div class="highlights">
         <div>
           <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" alt="คุณภาพดี">
@@ -197,6 +201,12 @@
     </div>
   </footer>
 
+  <!-- Floating Line Contact -->
+  <a href="https://line.me/R/ti/p/anas0848" class="floating-contact" target="_blank" title="แชทผ่าน Line">
+    <img src="data/products/logo/line.png" alt="Line" />
+  </a>
+
+  <!-- Scripts -->
   <script>
     // เปลี่ยนรูปหลักเมื่อคลิกที่ thumbnail
     function changeImage(product, imgIdx, el) {
@@ -209,9 +219,22 @@
     function scrollToProducts() {
       document.getElementById("products").scrollIntoView({ behavior: "smooth" });
     }
+
+    // Header hide/show on scroll
+    let lastScrollY = window.scrollY;
+    const header = document.getElementById('mainHeader');
+    header.classList.add('show'); // ให้ header โชว์ตอนโหลดหน้า
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        header.classList.add('hide');
+        header.classList.remove('show');
+      } else {
+        header.classList.add('show');
+        header.classList.remove('hide');
+      }
+      lastScrollY = window.scrollY;
+    });
   </script>
- <a href="https://line.me/R/ti/p/anas0848" class="floating-contact" target="_blank" title="แชทผ่าน Line">
-  <img src="data/products/logo/line.png" alt="Line" />
-</a>
 </body>
 </html>

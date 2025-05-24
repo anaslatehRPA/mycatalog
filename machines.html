@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สินค้า - เครื่องจักร | เดย์ อินเตอร์ เทรด</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container">
+      <img src="data/products/logo/logo.png" alt="โลโก้บริษัท" class="logo">
+      <h1>หจก. เดย์ อินเตอร์ เทรด</h1>
+      <nav>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">สินค้า</a>
+          <div class="dropdown-content">
+            <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
+            <a href="machines.html">เครื่องจักร</a>
+          </div>
+        </div>
+        <a href="index.html#about">เกี่ยวกับเรา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="products" id="machines">
+    <div class="container">
+      <h2>สินค้า - เครื่องจักร</h2>
+      <div class="product-list">
+        <!-- ตัวอย่างสินค้าเครื่องจักร -->
+        <div class="product-card">
+          <img id="main-machine1" src="data/machines/machine1/1.jpeg" alt="เครื่องจักร 1" class="main-image">
+          <div class="thumbs">
+            <img src="data/machines/machine1/1.jpeg" alt="เครื่องจักร 1 รูปที่ 1" class="active" onclick="changeImage('machine1', 1, this)">
+            <img src="data/machines/machine1/2.jpeg" alt="เครื่องจักร 1 รูปที่ 2" onclick="changeImage('machine1', 2, this)">
+            <img src="data/machines/machine1/3.jpeg" alt="เครื่องจักร 1 รูปที่ 3" onclick="changeImage('machine1', 3, this)">
+            <img src="data/machines/machine1/4.jpeg" alt="เครื่องจักร 1 รูปที่ 4" onclick="changeImage('machine1', 4, this)">
+          </div>
+          <h4>เครื่องทำลวดหนาม</h4>
+          <p>รายละเอียดเครื่องจักร – แข็งแรง ทนทาน ใช้งานได้ยาวนาน</p>
+          <a href="contact.html?product=เครื่องจักร1" class="quote-btn">ขอใบเสนอราคา</a>
+        </div>
+        <!-- เพิ่มสินค้าเครื่องจักรอื่น ๆ ได้ที่นี่ -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2025 Anas Lateh. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Floating Line Contact -->
+  <a href="https://line.me/R/ti/p/anas0848" class="floating-contact" target="_blank" title="แชทผ่าน Line">
+    <img src="data/products/logo/line.png" alt="Line" />
+  </a>
+
+  <!-- JS สำหรับ header ซ่อน/โชว์ตาม scroll -->
+  <script>
+    let lastScrollY = window.scrollY;
+    const header = document.getElementById('mainHeader');
+    header.classList.add('show');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        header.classList.add('hide');
+        header.classList.remove('show');
+      } else {
+        header.classList.add('show');
+        header.classList.remove('hide');
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
+  <script>
+        function changeImage(product, imgIdx, el) {
+        document.getElementById('main-' + product).src = `data/machines/${product}/${imgIdx}.jpeg`;
+        // ลบ active จากทุก thumbnail ในกล่องเดียวกัน
+        const thumbs = el.parentElement.querySelectorAll("img");
+        thumbs.forEach(t => t.classList.remove("active"));
+        el.classList.add("active");
+      }
+  </script>
+</body>
+</html>
