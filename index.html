@@ -54,7 +54,9 @@
       <!-- เมนูแนวนอน (เดสก์ท็อป) -->
       <nav class="desktop-nav">
         <div class="dropdown">
-          <button class="dropbtn">สินค้า</button>
+          <button class="dropbtn">
+            สินค้า <span class="dropdown-caret">▼</span>
+          </button>
           <div class="dropdown-content">
             <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
             <a href="machines.html">เครื่องจักร</a>
@@ -65,6 +67,19 @@
       </nav>
     </div>
   </header>
+   <!-- Hamburger Menu (มือถือ) และ overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="menu" id="sideMenu">
+      <div class="dropdown" id="dropdown1">
+        <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">สินค้า</button>
+        <div class="dropdown-content">
+          <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
+          <a href="machines.html">เครื่องจักร</a>
+        </div>
+      </div>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
 
   <!-- Banner -->
   <section class="banner">
