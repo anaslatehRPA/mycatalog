@@ -8,23 +8,43 @@
 </head>
 <body>
   <!-- Header -->
-  <header id="mainHeader">
-    <div class="container">
-      <img src="data/products/logo/logo.png" alt="โลโก้บริษัท" class="logo">
-      <h1>หจก. เดย์ อินเตอร์ เทรด</h1>
-      <nav>
+  <header class="header">
+    <div class="header-inner">
+      <div class="hamburger" id="hamburgerBtn" title="เมนู">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img src="data/products/logo/logo.png" alt="โลโก้ หจก. เดย์ อินเตอร์ เทรด" class="logo">
+      <span class="brand">หจก. เดย์ อินเตอร์ เทรด</span>
+      <!-- เมนูแนวนอน (เดสก์ท็อป) -->
+      <nav class="desktop-nav">
         <div class="dropdown">
-          <a href="#" class="dropbtn">สินค้า</a>
+          <button class="dropbtn">สินค้า</button>
           <div class="dropdown-content">
             <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
             <a href="machines.html">เครื่องจักร</a>
           </div>
         </div>
-        <a href="index.html#about">เกี่ยวกับเรา</a>
-        <a href="index.html#contact">ติดต่อ</a>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#contact">ติดต่อ</a>
       </nav>
     </div>
   </header>
+
+  <!-- Hamburger Menu (มือถือ) -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="menu" id="sideMenu">
+    <div class="dropdown" id="dropdown1">
+      <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">สินค้า</button>
+      <div class="dropdown-content">
+        <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
+        <a href="machines.html">เครื่องจักร</a>
+      </div>
+    </div>
+    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="#contact">ติดต่อ</a>
+  </nav>
 
   <section class="products" id="machines">
     <div class="container">
@@ -41,9 +61,55 @@
           </div>
           <h4>เครื่องทำลวดหนาม</h4>
           <p>รายละเอียดเครื่องจักร – แข็งแรง ทนทาน ใช้งานได้ยาวนาน</p>
-          <a href="contact.html?product=เครื่องจักร1" class="quote-btn">ขอใบเสนอราคา</a>
+          <a href="contact.html?product=เครื่องทำลวดหนาม" class="quote-btn">ขอใบเสนอราคา</a>
         </div>
         <!-- เพิ่มสินค้าเครื่องจักรอื่น ๆ ได้ที่นี่ -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section (optional for consistency) -->
+  <section class="about" id="about">
+    <div class="container">
+      <h3 style="font-size: 1.5em;">เกี่ยวกับเรา</h3>
+      <p>ได้ถือกำเนิดจากความมุ่งมั่น และประสบการจากผู้บริหารที่มีความรู้และเชี่ยวชาญในธุรกิจวัสดุก่อสร้างในจังหวัดปัตตานี ยะลา นราธิวาส โดยเป็นผู้ผลิต และจำหน่ายปลีก-ส่ง สินค้าเกี่ยวธุจกิจก่อสร้าง และเครื่องมือการเกษตร ที่มีคุณภาพสูงได้แก่
+      <br>รถเข็นอเนกประสงค์ ลวดหนาม กิ๊ปลวดหนาม ลวดผูก ตาข่ายรั้วแรงดึง ตาข่ายทอ ตาข่ายสาน
+      <br>โดยมุ่งเน้นให้บริการสินค้าที่มีคุณภาพ และการบริการส่งสินค้าที่มีประสิทธิภาพ รวดเร็ว ฉับไว เพื่อตอบสนองความต้องการของลูกค้า
+      </p>
+      <div class="highlights">
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" alt="คุณภาพดี">
+          <span>คุณภาพดี</span>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190406.png" alt="ราคาถูก">
+          <span>ราคาถูก</span>
+        </div>
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/128/190/190420.png" alt="ส่งไว">
+          <span>ส่งไว</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (optional for consistency) -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h3>ติดต่อเรา</h3>
+      <p>โทร: 081-5015914</p>
+      <p>อีเมล: example@example.com</p>
+      <p>Facebook: <a href="https://facebook.com/anaslatehRPA" target="_blank">facebook.com/anaslatehRPA</a></p>
+      <div class="map">
+        <iframe
+          title="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.2954446690873!2d101.3248471981359!3d6.868809248363577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b30789ce9eb3ff%3A0xf099ba655c592665!2z4Lij4LiW!5e0!3m2!1sth!2sth!4v1747983316159!5m2!1sth!2sth"
+          width="300"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
   </section>
@@ -59,10 +125,56 @@
     <img src="data/products/logo/line.png" alt="Line" />
   </a>
 
-  <!-- JS สำหรับ header ซ่อน/โชว์ตาม scroll -->
+  <!-- Scripts -->
   <script>
+    // เปลี่ยนรูปหลักเมื่อคลิกที่ thumbnail
+    function changeImage(product, imgIdx, el) {
+      document.getElementById('main-' + product).src = `data/machines/${product}/${imgIdx}.jpeg`;
+      // ลบ active จากทุก thumbnail ในกล่องเดียวกัน
+      const thumbs = el.parentElement.querySelectorAll("img");
+      thumbs.forEach(t => t.classList.remove("active"));
+      el.classList.add("active");
+    }
+
+    // Hamburger Menu Logic
+    const hamburger = document.getElementById('hamburgerBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('menuOverlay');
+    hamburger.onclick = function() {
+      sideMenu.classList.toggle('open');
+      overlay.classList.toggle('show');
+    }
+    overlay.onclick = function() {
+      sideMenu.classList.remove('open');
+      overlay.classList.remove('show');
+      document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
+    }
+    function toggleDropdown(e, id) {
+      e.stopPropagation();
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle('open');
+      document.querySelectorAll('nav.menu .dropdown').forEach(d=>{
+        if(d!==dropdown) d.classList.remove('open');
+      });
+    }
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape') {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
+      }
+    });
+    sideMenu.querySelectorAll('a').forEach(a=>{
+      a.onclick = () => {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
+      }
+    });
+
+    // Header hide/show on scroll (optional)
     let lastScrollY = window.scrollY;
-    const header = document.getElementById('mainHeader');
+    const header = document.querySelector('.header');
     header.classList.add('show');
     window.addEventListener('scroll', () => {
       if (window.scrollY > lastScrollY && window.scrollY > 50) {
@@ -74,15 +186,6 @@
       }
       lastScrollY = window.scrollY;
     });
-  </script>
-  <script>
-        function changeImage(product, imgIdx, el) {
-        document.getElementById('main-' + product).src = `data/machines/${product}/${imgIdx}.jpeg`;
-        // ลบ active จากทุก thumbnail ในกล่องเดียวกัน
-        const thumbs = el.parentElement.querySelectorAll("img");
-        thumbs.forEach(t => t.classList.remove("active"));
-        el.classList.add("active");
-      }
   </script>
 </body>
 </html>

@@ -42,13 +42,19 @@
 </head>
 <body>
   <!-- Header -->
-  <header id="mainHeader">
-    <div class="container">
-      <img src="data/products/logo/logo.png" alt="โลโก้บริษัท" class="logo">
-      <h1>หจก. เดย์ อินเตอร์ เทรด</h1>
-      <nav>
+  <header class="header">
+    <div class="header-inner">
+      <div class="hamburger" id="hamburgerBtn" title="เมนู">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img src="data/products/logo/logo.png" alt="โลโก้" class="logo">
+      <span class="brand">หจก. เดย์ อินเตอร์ เทรด</span>
+      <!-- เมนูแนวนอน (เดสก์ท็อป) -->
+      <nav class="desktop-nav">
         <div class="dropdown">
-          <a href="#products" class="dropbtn">สินค้า</a>
+          <button class="dropbtn">สินค้า</button>
           <div class="dropdown-content">
             <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
             <a href="machines.html">เครื่องจักร</a>
@@ -220,21 +226,57 @@
       document.getElementById("products").scrollIntoView({ behavior: "smooth" });
     }
 
-    // Header hide/show on scroll
-    let lastScrollY = window.scrollY;
-    const header = document.getElementById('mainHeader');
-    header.classList.add('show'); // ให้ header โชว์ตอนโหลดหน้า
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        header.classList.add('hide');
-        header.classList.remove('show');
-      } else {
-        header.classList.add('show');
-        header.classList.remove('hide');
+    // ----- Hamburger Menu Logic -----
+    const hamburger = document.getElementById('hamburgerBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('menuOverlay');
+    hamburger.onclick = function() {
+      sideMenu.classList.toggle('open');
+      overlay.classList.toggle('show');
+    }
+    overlay.onclick = function() {
+      sideMenu.classList.remove('open');
+      overlay.classList.remove('show');
+      document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
+    }
+    function toggleDropdown(e, id) {
+      e.stopPropagation();
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle('open');
+      document.querySelectorAll('nav.menu .dropdown').forEach(d=>{
+        if(d!==dropdown) d.classList.remove('open');
+      });
+    }
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape') {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
       }
-      lastScrollY = window.scrollY;
     });
+    sideMenu.querySelectorAll('a').forEach(a=>{
+      a.onclick = () => {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        document.querySelectorAll('nav.menu .dropdown').forEach(d=>d.classList.remove('open'));
+      }
+    });
+    // ----- END Hamburger Menu Logic -----
+
+    // // Header hide/show on scroll (ถ้าอยากใช้ให้แก้ selector เป็น .header)
+    // let lastScrollY = window.scrollY;
+    // const header = document.querySelector('.header');
+    // header.classList.add('show'); // ให้ header โชว์ตอนโหลดหน้า
+    // window.addEventListener('scroll', () => {
+    //   if (window.scrollY > lastScrollY && window.scrollY > 50) {
+    //     header.classList.add('hide');
+    //     header.classList.remove('show');
+    //   } else {
+    //     header.classList.add('show');
+    //     header.classList.remove('hide');
+    //   }
+    //   lastScrollY = window.scrollY;
+    // });
   </script>
 </body>
 </html>
