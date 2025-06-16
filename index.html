@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ขายส่งรถเข็นปูน(DAY)</title>
   <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- หากใช้ .png แทน -->
+  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
   <style>
     .main-image {
       width: 100%;
@@ -49,8 +53,8 @@
         <span></span>
         <span></span>
       </div>
-      <img src="data/products/logo/logo.png" alt="โลโก้" class="logo">
-      <span class="brand">หจก. เดย์ อินเตอร์ เทรด</span>
+      <img src="images\logo\logo2.png" alt="โลโก้" class="logo">
+      <span class="brand">บริษัท โซเทรด ซัพพลาย จำกัด</span>
       <!-- เมนูแนวนอน (เดสก์ท็อป) -->
       <nav class="desktop-nav">
         <div class="dropdown">
@@ -72,8 +76,16 @@
     <nav class="menu" id="sideMenu">
       <div class="dropdown" id="dropdown1">
         <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">
-          สินค้า <span class="dropdown-caret">▼</span>
+          สินค้า<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1em; height: 1em; margin-left: 0.4em;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
         </button>
+
+        <!--
+        <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">
+          สินค้า <span class="dropdown-caret">▼</span>
+        </button>-->
+
         <div class="dropdown-content">
           <a href="index.html#products">อุปกรณ์ก่อสร้าง</a>
           <a href="machines.html">เครื่องจักร</a>
@@ -86,20 +98,24 @@
   <!-- Banner -->
   <section class="banner">
     <div class="container">
-      <h2>ผู้จำน่ายอุปกรณ์การก่อสร้าง และการเกษตร</h2>
+      <h2>ผู้ผลิตและจำหน่ายอุปกรณ์ก่อสร้างและการเกษตร ครบวงจร</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        รถเข็นปูน • ลวดตาข่าย • ลวดหนามหีบเพลง • มุ้งลวด • งานรั้ว และอุปกรณ์ก่อสร้างอื่นๆ  
+        <br>
+        เราคัดสรรคุณภาพทุกชิ้น เปรียบเสมือนชีวิตของเรา  
+        <br>
+        พร้อมพัฒนาต่อเนื่องด้วยนวัตกรรมและกระบวนการทางวิทยาศาสตร์  
+        <br>
+        และให้บริการด้วยความซื่อสัตย์ เพื่อความมั่นใจสูงสุดของคุณ
       </p>
     </div>
   </section>
 
+
   <!-- Product List -->
   <section class="products" id="products">
     <div class="container">
-      <h3 style="text-align: center; font-size: 1.8em;">Our Products</h3>
+      <h3 style="text-align: center; font-size: 1.8em;">สินค้าของเรา</h3>
       <div class="product-list">
         <div class="product-card">
           <img id="main-prod1" src="data/products/prod1/1.jpeg" alt="ลวดหนาม" class="main-image">
@@ -181,15 +197,15 @@
       </p>
       <div class="highlights">
         <div>
-          <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" alt="คุณภาพดี">
+          <img src="images/icons/HQ.png" alt="คุณภาพดี">
           <span>คุณภาพดี</span>
         </div>
         <div>
-          <img src="https://cdn-icons-png.flaticon.com/128/190/190406.png" alt="ราคาถูก">
+          <img src="images/icons/low price.png" alt="ราคาถูก">
           <span>ราคาถูก</span>
         </div>
         <div>
-          <img src="https://cdn-icons-png.flaticon.com/128/190/190420.png" alt="ส่งไว">
+          <img src="images/icons/fast-delivery.png" alt="ส่งไว">
           <span>ส่งไว</span>
         </div>
       </div>

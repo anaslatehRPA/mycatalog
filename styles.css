@@ -206,7 +206,7 @@ nav.menu .dropbtn {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('data/products/logo/banner/banner.jpeg');
+  background-image: url('data/products/logo/banner/111.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -376,3 +376,50 @@ footer {
     padding: 0 0.5rem;
   }
 }
+
+/* ICONS */
+.highlights {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+}
+.highlights div {
+  text-align: center;
+}
+.highlights img {
+  width: 64px;
+  height: 64px;
+}
+.highlights span {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* dropbtn svg */
+.dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.dropbtn svg {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.4em;
+  vertical-align: middle;
+}
+
+/* กรอบสีดำบาง main-prod */
+img[id^="main-prod"] {
+  border: 2px solid #6e887f;       /* กรอบสีดำบาง */
+  border-radius: 4px;           /* มุมโค้งเล็กน้อย ถ้าต้องการ */
+  box-sizing: border-box;       /* เพื่อให้กรอบไม่ล้นขนาดภาพ */
+}
+
+
